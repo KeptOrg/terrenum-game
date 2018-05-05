@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://terrain/GenericTile.tscn" type="PackedScene" id=1]
-[ext_resource path="res://terrain/plains/Plains.gd" type="Script" id=2]
+[ext_resource path="res://terrain/GenericTile.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
 
+resource_name = "Material.001"
 render_priority = 0
 flags_transparent = false
 flags_unshaded = false
@@ -26,11 +26,11 @@ params_point_size = 1.0
 params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 0.168627, 0.717647, 0.137255, 1 )
-metallic = 0.0
-metallic_specular = 0.2
+albedo_color = Color( 0.236554, 0.11848, 0.0310596, 1 )
+metallic = 0.5
+metallic_specular = 0.5
 metallic_texture_channel = 0
-roughness = 0.14
+roughness = 0.542695
 roughness_texture_channel = 0
 emission_enabled = false
 normal_enabled = false
@@ -53,9 +53,19 @@ uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
-_sections_unfolded = [ "Albedo", "Metallic", "Roughness" ]
+_sections_unfolded = [ "Metallic", "Roughness" ]
 
-[node name="Plains" index="0" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
-material_terrain = SubResource( 1 )
+[node name="GenericTile" type="Spatial"]
+
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 0, 0 )
+script = ExtResource( 1 )
+coordinates = Vector3( 0, 0, 0 )
+terrain_ease = 0.406126
+noise_seed = -1
+noise_base = 0.3
+noise_scale = 1.0
+noise_exponent = 1.0
+material_ground = SubResource( 1 )
+material_terrain = null
+
 

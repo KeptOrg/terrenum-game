@@ -1,5 +1,5 @@
 tool
-extends "res://terrain/TileBase.gd"
+extends "res://terrain/GenericTile.gd"
 
 func _ready():
 	pass
